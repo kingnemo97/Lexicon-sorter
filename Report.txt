@@ -1,0 +1,182 @@
+Report
+Section 1:
+* BinarySearchTree.java (its an AVL tree now)
+o wordNode root
+* used to store the starting node of the tree
+o BinarySearchTree()
+* Constructor
+o Insert(String data)
+* Used to insert a node into the AVL tree
+* wordNode p – used to keep track of the current node
+* wordNode w – used to create a new node for insertion
+o rebalanceInsertionPath(wordNode node)
+* used to rebalance the AVL tree when inserting a node
+* ArrayList nodes – stores the path from the root to the parent 
+* getAllNodesOnPath(String key)
+* finds all node on a path and returns them
+* ArrayList nodes – stores the path from the root to the parent 
+o setHeight(wordNode node)
+* sets the height for the children
+* wordNode leftChild – used to store the current left node
+* wordNode rightChild – used to store the current right node
+* int leftHeight - check’s to see if leftChild is equal to null and sets the height to -1 otherwise call the function .getHeight()
+* int rightHeight - check’s to see if rightChild is equal to null and sets the height to -1 otherwise call the function .getHeight()
+o rebalance(wordNode node)
+* used to rebalance a node
+* int diff – used to store the height difference between two nodes
+o getHeightDifference(wordNode node)
+* finds the height difference between two nodes
+* wordNode leftChild – used to store the current left node
+* wordNode rightChild – used to store the current right node
+* int leftHeight - check’s to see if leftChild is equal to null and sets the height to -1 otherwise call the function .getHeight()
+* int rightHeight - check’s to see if rightChild is equal to null and sets the height to -1 otherwise call the function .getHeight()
+o rightRotation(wordNode g)
+* used to rotate the wordNode right
+* wordNode p – used to store the left wordNode
+* wordNode x – stores the right child of p
+o leftRotation(wordNode g)
+* used to rotate a word node left
+* wordNode p – used to store the right wordNode
+* wordNode x – stores the left child of p
+o rightLeftRotation(wordNode g)
+* used to rotate a node right and then left
+* wordNode p – used to store the left wordNode
+o leftRightRotation(wordNode g)
+* used to rotate a node left and then right
+* wordNode p – used to store the right wordNode
+o remove(String key)
+* wordNode deleted – used to store the deleted wordNode
+* wordNode parent – used to store the parent of the deleated wordNode
+o deleteLeftLeafNode(wordNode deleted, wordNode parent)
+* used to reset the left or right and then rebalance the deletion path
+o deleteNodeWithOneChild(wordNode deleted, wordNode parent)
+* used to delete a node with one child and rebalance the path
+* wordNode child – used to store the child of the node
+o deleteNodeWithTwoChildren(wordNode deleted, wordNode parent)
+* used to delete a node with two children
+* wordNode largest – used to store the current largest node
+* wordNode parentOfLargest – used to store the parent of the largest node
+o rebalanceDeletionPath(wordNode parent)
+* used to rebalance the deletion path once a node has been deleted
+* ArryList nodes – stores the path from the root to the parent
+o search (String key)
+* searches the AVL tree for a given string and returns the wordNode;
+* wordNode p – used to store the current node
+o recursive methods used to traverse the AVL tree
+* traverseInOrder(ArrayList<Words> list)
+* used to start traversing using the root
+* traverse in order(wordNode node, ArrayList<Words> list)
+* used to recursively call itself and pass on the current node
+* visit (wordNode node, ArrayList<Words> list)
+* used to add the node to the list
+o 
+* WordMatchTesterBT.java
+o Main
+* BinarySearchTree bt – used to store all the Words that are read in from the file
+* Scanner fileList – creates a Scanner to read the file with the list of files to be read in
+* ArrayList<Words> list – used to create an array of length 50000 to store Words objects
+* Section to check neighbours
+* String word
+* Char next
+* wordNode w
+* method to cycle through the array list and check the neighbours by searching the binary tree for every possible neighbour combination by incrementing a chachter in the word and searching for it, if the search finds the word it adds it as a neighbour to the Words object in the arrayList
+* writeData(list file2)
+* calls the method to write the array list to the given file
+* checkPaterns(list, file3, file4)
+* calls the method to check the patterns given the file3 with the patterns and file4 to write the matches to
+o readData(String filename, BinarySearchTree bt)
+* Scanner file – used to create a scanner to read in the file
+* String word – a String to store the current word in
+* Method used to read words in a file and create a BinarySearchTree with every word and how many times it repeats
+o writeData(ArrayList<Words> list, String file 2)
+* PrintWriter outFile – used to create a PrintWriter to write words to file2
+* Method used to write a given ArrayList<String> to a file
+o checkPaterns(ArrayList<Words> list, String file3, String file4)
+* Scanner readPatterns – creates a Scanner to read in the patterns from a file
+* PrintWriter writePatterns – creates a PrintWriter to write all the patterns to
+* String word – String to store the current word
+* Int correct – used to keep track of how many of the characters are correct
+* Boolean exists – used to store if it is a valid pattern
+* Boolean hasStar – used to store if the pattern has a star in it
+* Method to check patterns and words by comparing character by character, if the length of the word is longer then the pattern, if the characters are the same, else if ‘*’ it exists, else if ‘?’ increment correct, else not equal break, if correct is equal to the length of the word and the Boolean hasStar is false writes the word to the file, if exists is false it writes to the file that there were no matches
+* wordNode.java
+o Words word
+* Used to store the Word object
+o wordNode left
+* used to store the left wordNode
+o wordNode right
+* used to store the right wordNode
+o int height
+* used to store the height of the node
+o wordNode(Words word)
+* constructor to create the object and initialise all the values
+o setLeft(wordNodeLeft)
+* used to set the left node
+o getWordO()
+* used to get the word object
+o setRight(wordNode node)
+* used to set the right node
+o getLeft()
+* used to get the left node
+o getRight()
+* used to get the right node
+o getWords()
+* used to return the word inside the Words object
+o getnode()
+* used to return the current node
+o setData(String data)
+* used to set the word in the Words object
+o repeats()
+* used to increment the repeats in the word object
+o setHeight(int height)
+* used to set the height
+o getHeight()
+* used to return the height
+o displayNode()
+* used to call the toString of the Words object
+* Words.java
+o String word
+* used to store the word
+o Int noRepeats
+* Used to keep track of the number of times the word has been repeated
+o ArrayList<String> list
+* Used to store the neighbours
+o Words(String word)
+* Used to create the Words object and initialize the values
+o isNeighbour(String word)
+* used to check if a given word is a neighbour of the current word
+* int differBy – used to keep track of many characters are different
+o addNeighbour(String neighbour)
+* used to add a neighbour to the ArrayList
+o compareTo(Words w)
+* used to compare two Words objects to see if they are the same 
+o repeat()
+* used to increment the noRepeats
+o getWord()
+* used to get the word
+o getRepeats()
+* used to get the repeats
+o toString()
+* used to return the word object as a set String
+
+Section 2
+the sections of the code that are the most costly are:
+read in the files and check the word isnt already in the tree
+	this section of code is costly because it is called so many times and it has to search the tree to see if the word has already been added, to address this i used an AVL tree, i chose this data Structure because its worst case when seaching is Olog(n)
+checking for neighbours
+	the bigest cost of time when adding the neighbour is seaching to see if the neighbour exists and then seach again to add the neighbour, to solve this i search the AVL tree for all the possible neighbour and add the neighbours to the Words in the ArrayList
+checking patterns
+	i didnt end up changing this part of the code i had a few ideas on how to optimise it but none of  them ended up working out, i ended up using the same code from Assingment1
+
+Section 3
+i checked that the neighbours were right by looking in the file where they were saved and looking at the single chacter words and made all the letters of the alphabet were there
+to check if it was writing to the file correctly i displayed the list to the screen and checked it against the words in the file they were saved to
+to check the checkPatterns i input some words that i knew the output for and checked to see if that was given output in the file
+
+Section 4
+to check efficiency i timed how long it took to read in all the given tet files, i timed it a number of times to get an average time of:
+Everything - 11.66
+reading in all the files - 3.36
+Adding Neighbours - 5.2
+Write ing the list to a file - 2.96
+Check Patterns - 0.14
